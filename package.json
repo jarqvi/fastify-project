@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "The simple fastify project",
   "main": "src/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "lint": "npx eslint --ext .ts src/",
     "lint:fix": "npx eslint --ext .ts src/ --fix",
@@ -50,7 +51,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "pretty-quick --staged"
     }
   }
 }
