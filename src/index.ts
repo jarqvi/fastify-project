@@ -19,8 +19,8 @@ const env: IEnv = cleanEnv(process.env, {
     NODE_ENV: str({ desc: 'development or production' }),
     DB_URI: str({ desc: 'for postgres database' }),
     HOST: str({ desc: 'the host of app' }),
-    SECRET_KEY: str({ desc: 'a secret for hashing' })
-}); 
+    SECRET_KEY: str({ desc: 'a secret for hashing' }),
+});
 // ---
 env.NODE_ENV;
 env.DB_URI;
@@ -31,8 +31,8 @@ const logger = pino({
     transport: {
         target: 'pino-pretty',
         options: {
-            colorize: true
-        }
+            colorize: true,
+        },
     },
-    stream: process.stdout
+    stream: process.stdout,
 });
