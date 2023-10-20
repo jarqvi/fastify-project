@@ -4,6 +4,8 @@
   "description": "The simple fastify project",
   "main": "src/index.js",
   "scripts": {
+    "lint": "npx eslint --ext .ts src/",
+    "lint:fix": "npx eslint --ext .ts src/ --fix",
     "build": "tsc -p tsconfig.json",
     "start": "npx ts-node src/index.ts",
     "dev": "npx nodemon"
