@@ -1,0 +1,5 @@
+{
+    "DB_URI": "DB_URI",
+    "HOST": "HOST",
+    "SECRET_KEY": "SECRET_KEY"
+}

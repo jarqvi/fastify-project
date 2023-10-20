@@ -1,0 +1,42 @@
+{
+  "name": "fastify-project",
+  "version": "1.0.0",
+  "description": "The simple fastify project",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "npx ts-node src/index.ts",
+    "dev": "npx nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarqvi/fastify-project.git"
+  },
+  "keywords": [
+    "node",
+    "fastify",
+    "javascript",
+    "typescript"
+  ],
+  "author": "MohammadHasan Akbari",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jarqvi/fastify-project/issues"
+  },
+  "homepage": "https://github.com/jarqvi/fastify-project#readme",
+  "dependencies": {
+    "config": "^3.3.9",
+    "dotenv": "^16.3.1",
+    "envalid": "^8.0.0",
+    "fastify": "^4.24.3",
+    "fastify-plugin": "^4.5.1",
+    "uninstall": "^0.0.0"
+  },
+  "devDependencies": {
+    "@tsconfig/node18": "^18.2.2",
+    "@types/config": "^3.3.2",
+    "@types/node": "^20.8.7",
+    "nodemon": "^3.0.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.2.2"
+  }
+}
