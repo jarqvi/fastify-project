@@ -1,0 +1,12 @@
+version: '3.5'
+services:
+  fastify:
+    build: ./doc/
+    ports:
+      - 8080:8080
+    volumes:
+      - ./doc:/usr/share/nginx/html/doc
+    environment:
+      URLS: "[
+          { url: '/doc/app.yml', name: 'App' }
+        ]"

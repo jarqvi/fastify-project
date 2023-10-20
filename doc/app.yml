@@ -1,0 +1,34 @@
+openapi: 3.0.1
+info:
+  title: Fastify Project
+  description: The simple fastify project
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+security:
+- jwt: []
+tags:
+  - name: test
+paths:
+  /v1/test:
+    get: 
+      tags:
+      - test
+      responses:
+        200:
+          description: Successful operation
+          content: {}
+        401:
+          description: Missing authentication
+          content: {}
+        404:
+          description: App does not exists
+          content: {}
+
+components:
+  securitySchemes:
+    jwt:
+      type: apiKey
+      description: 'Enter the token with the `Bearer: ` prefix, e.g. "Bearer abcde12345".  #'
+      name: Authorization
+      in: header
