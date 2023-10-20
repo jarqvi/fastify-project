@@ -4,6 +4,7 @@
   "description": "The simple fastify project",
   "main": "src/index.js",
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "start": "npx ts-node src/index.ts",
     "dev": "npx nodemon"
   },
@@ -29,13 +30,14 @@
     "envalid": "^8.0.0",
     "fastify": "^4.24.3",
     "fastify-plugin": "^4.5.1",
-    "uninstall": "^0.0.0"
+    "pino": "^8.16.0"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",
     "@types/config": "^3.3.2",
     "@types/node": "^20.8.7",
     "nodemon": "^3.0.1",
+    "pino-pretty": "^10.2.3",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   }

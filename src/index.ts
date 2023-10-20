@@ -1,5 +1,6 @@
 import 'dotenv/config';
 
+import pino from 'pino';
 import config from 'config';
 import { cleanEnv, str } from 'envalid';
 
@@ -25,3 +26,13 @@ env.NODE_ENV;
 env.DB_URI;
 env.HOST;
 env.SECRET_KEY;
+
+const logger = pino({
+    transport: {
+        target: 'pino-pretty',
+        options: {
+            colorize: true
+        }
+    },
+    stream: process.stdout
+});
