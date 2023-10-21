@@ -8,24 +8,47 @@ servers:
 security:
 - jwt: []
 tags:
-  - name: test
+  - name: Auth
 paths:
-  /v1/test:
-    get: 
+  /v1/auth/register:
+    post: 
       tags:
-      - test
+      - Auth
+      summary: Register
+      description: register a user 
+      operationId: register
+      requestBody: 
+        description: create user
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/register'
       responses:
-        200:
+        201:
           description: Successful operation
           content: {}
         401:
           description: Missing authentication
           content: {}
-        404:
-          description: App does not exists
+        500:
+          description: Internal server error
           content: {}
 
 components:
+  schemas:
+    register: 
+      required:
+      - fullName
+      - username
+      - password
+      type: object
+      properties:
+        name:
+          type: string
+        username:
+          type: string
+        password:
+          type: string
   securitySchemes:
     jwt:
       type: apiKey

@@ -2,13 +2,13 @@
   "name": "fastify-project",
   "version": "1.0.0",
   "description": "The simple fastify project",
-  "main": "src/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/server.js",
+  "types": "dist/server.d.ts",
   "scripts": {
     "lint": "npx eslint --ext .ts src/",
     "lint:fix": "npx eslint --ext .ts src/ --fix",
     "build": "tsc -p tsconfig.json",
-    "start": "npx ts-node src/index.ts",
+    "start": "npx ts-node src/server.ts",
     "dev": "npx nodemon"
   },
   "repository": {
@@ -28,12 +28,15 @@
   },
   "homepage": "https://github.com/jarqvi/fastify-project#readme",
   "dependencies": {
+    "@fastify/cors": "^8.4.0",
     "config": "^3.3.9",
     "dotenv": "^16.3.1",
     "envalid": "^8.0.0",
     "fastify": "^4.24.3",
-    "fastify-plugin": "^4.5.1",
-    "pino": "^8.16.0"
+    "pg": "^8.11.3",
+    "pg-hstore": "^2.3.4",
+    "pino": "^8.16.0",
+    "sequelize": "^6.33.0"
   },
   "devDependencies": {
     "@tsconfig/node18": "^18.2.2",

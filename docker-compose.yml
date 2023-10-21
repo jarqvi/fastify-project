@@ -1,7 +1,8 @@
 version: '3.5'
 services:
-  fastify:
+  doc:
     build: ./doc/
+    container_name: fastify-doc
     ports:
       - 8080:8080
     volumes:
@@ -10,3 +11,21 @@ services:
       URLS: "[
           { url: '/doc/app.yml', name: 'App' }
         ]"
+  postgres:
+    image: postgres
+    container_name: fastify-postgres
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASS}
+    volumes:
+      - /opt/postgres:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: fastify-pgadmin
+    ports:
+      - 8888:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PG_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PG_PASS}

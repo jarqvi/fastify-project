@@ -1,5 +1,5 @@
 {
-    "APP_NAME": "fastify-project",
+    "APP_NAME": "Fastify-Project",
     "PORT": 8800,
     "SECRET_KEY" : ""
 }
