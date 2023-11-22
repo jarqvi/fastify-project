@@ -11,7 +11,7 @@ services:
         { url: '/doc/server.yml', name: 'Server' }
         ]"
   postgres:
-    image: postgres
+    image: postgres:15
     ports:
       - 5432:5432
     environment:
@@ -20,9 +20,22 @@ services:
     volumes:
       - /opt/postgres:/var/lib/postgresql/data
   pgadmin:
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:7.8
     ports:
       - 8888:80
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PG_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PG_PASS}
+  server:
+    build: .
+    ports:
+      - 8800:8800
+    volumes:
+      - ./dist:/app/dist
+      - ./src:/app/src
+    command: npm run dev
+    # command: npm start
+
+networks:
+  app:
+    driver: bridge

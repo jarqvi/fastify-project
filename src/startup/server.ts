@@ -9,8 +9,8 @@ import { Sequelize } from 'sequelize';
 import { db } from './db';
 import { env } from './config';
 import { logger } from './logger';
-import IEnv from '../interfaces/env';
-import authRoute from '../routes/v1/auth';
+import v1Routes from '../routes/v1';
+import IRep from '../interfaces/rep';
 
 const PORT: number = config.get('PORT');
 const HOST: string = config.get('HOST');
@@ -36,7 +36,20 @@ server.register(cors, {
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
 });
-server.register(authRoute, { prefix: '/api/v1' });
+
+server.route({
+    method: 'GET',
+    url: '/',
+    handler: (req, rep) => {
+      const rep200: IRep = {
+        statusCode: 200,
+        message: 'API web service started'
+      };
+
+      rep.status(200).send(rep200);
+    },
+})
+server.register(v1Routes, { prefix: '/api/v1' });
 
 server.listen({ port: +PORT, host: HOST }, async (err: Error | null, address: string) => {
   if (err) {
