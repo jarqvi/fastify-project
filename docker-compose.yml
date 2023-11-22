@@ -10,6 +10,8 @@ services:
       URLS: "[
         { url: '/doc/server.yml', name: 'Server' }
         ]"
+    networks:
+      - app
   postgres:
     image: postgres:15
     ports:
@@ -19,6 +21,8 @@ services:
       POSTGRES_PASSWORD: ${DB_PASS}
     volumes:
       - /opt/postgres:/var/lib/postgresql/data
+    networks:
+      - app
   pgadmin:
     image: dpage/pgadmin4:7.8
     ports:
@@ -26,6 +30,8 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PG_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PG_PASS}
+    networks:
+      - app
   server:
     build: .
     ports:
@@ -35,6 +41,8 @@ services:
       - ./src:/app/src
     command: npm run dev
     # command: npm start
+    networks:
+      - app
 
 networks:
   app:
