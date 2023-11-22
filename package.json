@@ -6,10 +6,7 @@
   "types": "dist/startup/server.d.ts",
   "scripts": {
     "lint": "npx eslint --ext .ts src/",
-    "lint:fix": "npx eslint --ext .ts src/ --fix",
     "format": "prettier --check .",
-    "format:fix": "prettier --write .",
-    "build": "tsc -p tsconfig.json",
     "start": "npx ts-node src/startup/server.ts",
     "dev": "npx nodemon"
   },
@@ -56,7 +53,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint:fix && npm run format:fix && npm run build && git add -A ."
+      "pre-commit": "npx eslint --ext .ts src/ --fix && prettier --write . && tsc -p tsconfig.json && git add -A ."
     }
   }
 }
