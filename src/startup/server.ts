@@ -38,17 +38,17 @@ server.register(cors, {
 });
 
 server.route({
-    method: 'GET',
-    url: '/',
-    handler: (req, rep) => {
-      const rep200: IRep = {
-        statusCode: 200,
-        message: 'API web service started'
-      };
+  method: 'GET',
+  url: '/',
+  handler: (req, rep) => {
+    const rep200: IRep = {
+      statusCode: 200,
+      message: 'API web service started',
+    };
 
-      rep.status(200).send(rep200);
-    },
-})
+    rep.status(200).send(rep200);
+  },
+});
 server.register(v1Routes, { prefix: '/api/v1' });
 
 server.listen({ port: +PORT, host: HOST }, async (err: Error | null, address: string) => {
