@@ -4,20 +4,20 @@ info:
   description: The simple fastify project
   version: 1.0.0
 servers:
-- url: http://localhost:8080
+  - url: http://localhost:8080
 security:
-- jwt: []
+  - jwt: []
 tags:
   - name: Auth
 paths:
   /v1/auth/register:
-    post: 
+    post:
       tags:
-      - Auth
+        - Auth
       summary: Register
-      description: register a user 
+      description: register a user
       operationId: register
-      requestBody: 
+      requestBody:
         description: create user
         content:
           application/json:
@@ -36,11 +36,11 @@ paths:
 
 components:
   schemas:
-    register: 
+    register:
       required:
-      - fullName
-      - username
-      - password
+        - fullName
+        - username
+        - password
       type: object
       properties:
         name:

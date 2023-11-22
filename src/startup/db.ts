@@ -10,10 +10,10 @@ const DB_URI: string = config.get('DB_URI');
 
 export const sequelize = new Sequelize(DB_URI, { logging: false });
 export const db = async () => {
-    try {
-        await sequelize.authenticate();
-        logger.info(`${APP_NAME} database connected`);
-    } catch (err) {
-        logger.error(err);
-    }
+  try {
+    await sequelize.authenticate();
+    logger.info(`${APP_NAME} database connected`);
+  } catch (err) {
+    logger.error(err);
+  }
 };

@@ -26,21 +26,21 @@ env.PG_PASS;
 db();
 
 export const server = fastify({
-    logger,
-    ignoreDuplicateSlashes: true,
+  logger,
+  ignoreDuplicateSlashes: true,
 });
 
 server.register(cors, {
-    origin: '*',
-    methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
+  origin: '*',
+  methods: ['GET', 'PUT', 'POST', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true,
 });
 server.register(authRoute, { prefix: '/api/v1' });
 
 server.listen({ port: +PORT, host: HOST }, async (err: Error | null, address: string) => {
-    if (err) {
-        server.log.error(err);
-        process.exit(1);
-    }
+  if (err) {
+    server.log.error(err);
+    process.exit(1);
+  }
 });
