@@ -1,6 +1,6 @@
 import { DataTypes, Model } from 'sequelize';
 
-import { sequelize } from '../server';
+import { sequelize } from '../startup/db';
 
 export default class User extends Model {}
 
@@ -10,46 +10,46 @@ User.init(
             type: DataTypes.INTEGER,
             autoIncrement: true,
             primaryKey: true,
-            allowNull: false
+            allowNull: false,
         },
         first_name: {
-            type: DataTypes.STRING(50)
+            type: DataTypes.STRING(50),
         },
         last_name: {
-            type: DataTypes.STRING(50)
+            type: DataTypes.STRING(50),
         },
         username: {
             type: DataTypes.STRING(50),
             unique: true,
-            allowNull: false
+            allowNull: false,
         },
         password: {
             type: DataTypes.STRING(255),
-            allowNull: false
+            allowNull: false,
         },
         active: {
             type: DataTypes.BOOLEAN,
-            defaultValue: false
+            defaultValue: false,
         },
         birth_date: {
-            type: DataTypes.DATEONLY
+            type: DataTypes.DATEONLY,
         },
         createdAt: {
             type: DataTypes.DATE,
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         },
         updatedAt: {
             type: DataTypes.DATE,
             allowNull: false,
-            defaultValue: sequelize.literal('CURRENT_TIMESTAMP')
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
         },
     },
     {
         sequelize,
         modelName: 'User',
-        tableName: 'users'
-    }
+        tableName: 'users',
+    },
 );
 
 User.sync({ force: true });

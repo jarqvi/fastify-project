@@ -2,18 +2,16 @@ version: '3.5'
 services:
   doc:
     build: ./doc/
-    container_name: fastify-doc
     ports:
       - 8080:8080
     volumes:
       - ./doc:/usr/share/nginx/html/doc
     environment:
       URLS: "[
-          { url: '/doc/app.yml', name: 'App' }
+          { url: '/doc/server.yml', name: 'Server' }
         ]"
   postgres:
     image: postgres
-    container_name: fastify-postgres
     ports:
       - 5432:5432
     environment:
@@ -23,7 +21,6 @@ services:
       - /opt/postgres:/var/lib/postgresql/data
   pgadmin:
     image: dpage/pgadmin4
-    container_name: fastify-pgadmin
     ports:
       - 8888:80
     environment:

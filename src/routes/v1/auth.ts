@@ -12,5 +12,6 @@ export default function authRoute(
         url: '/register',
         handler: AuthController.register,
     });
+    
     done();
 }

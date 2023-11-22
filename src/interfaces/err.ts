@@ -1,21 +1,5 @@
-interface IErr {
-    message: string;
-    error: string;
+export default interface IErr {
     statusCode: number;
-}
-
-export interface IErr400 {
-    schema: {
-        response: {
-            400: IErr;
-        }
-    };
-}
-
-export interface IErr401 {
-    schema: {
-        response: {
-            401: IErr;
-        }
-    };
+    message: string;
+    data: any;
 }
