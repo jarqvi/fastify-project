@@ -14,8 +14,6 @@ services:
       - app
   postgres:
     image: postgres:15
-    ports:
-      - 5432:5432
     environment:
       POSTGRES_USER: ${DB_USER}
       POSTGRES_PASSWORD: ${DB_PASS}
@@ -32,15 +30,14 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${PG_PASS}
     networks:
       - app
+    depends_on:
+      - postgres
   server:
     build: .
     ports:
       - 8800:8800
     volumes:
-      - ./dist:/app/dist
-      - ./src:/app/src
-    command: npm run dev
-    # command: npm start
+      - ./:/app
     networks:
       - app
 
