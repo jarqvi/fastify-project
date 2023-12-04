@@ -10,7 +10,7 @@ security:
 tags:
   - name: Auth
 paths:
-  /v1/auth/register:
+  /api/v1/auth/register:
     post:
       tags:
         - Auth
