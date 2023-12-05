@@ -1,8 +1,14 @@
 import { FastifyRequest, FastifyReply } from 'fastify';
 
+import { registerSchema } from '../schemas/validations/auth';
+
 class AuthController {
   async register(req: FastifyRequest, reply: FastifyReply) {
-    return reply.send(req.headers.authorization);
+    const isBodyValid = registerSchema(req.body);
+    console.log(isBodyValid);
+    if (!isBodyValid) {
+      
+    }
   }
 }
 

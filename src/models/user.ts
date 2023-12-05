@@ -1,10 +1,9 @@
-import { DataTypes, Model } from 'sequelize';
+import { DataTypes } from 'sequelize';
 
 import { sequelize } from '../startup/db';
 
-export default class User extends Model {}
-
-User.init(
+export default sequelize.define(
+  'User',
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,10 +11,7 @@ User.init(
       primaryKey: true,
       allowNull: false,
     },
-    first_name: {
-      type: DataTypes.STRING(50),
-    },
-    last_name: {
+    fullName: {
       type: DataTypes.STRING(50),
     },
     username: {
@@ -31,25 +27,11 @@ User.init(
       type: DataTypes.BOOLEAN,
       defaultValue: false,
     },
-    birth_date: {
+    birthDate: {
       type: DataTypes.DATEONLY,
-    },
-    createdAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-    },
-    updatedAt: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
     },
   },
   {
-    sequelize,
-    modelName: 'User',
-    tableName: 'users',
+    timestamps: true,
   },
 );
-
-User.sync({ force: true });

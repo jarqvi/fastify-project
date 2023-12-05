@@ -31,6 +31,7 @@
   "homepage": "https://github.com/jarqvi/fastify-project#readme",
   "dependencies": {
     "@fastify/cors": "^8.4.0",
+    "ajv": "^8.12.0",
     "config": "^3.3.9",
     "dotenv": "^16.3.1",
     "envalid": "^8.0.0",
