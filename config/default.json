@@ -1,5 +1,6 @@
 {
   "APP_NAME": "Fastify-Project",
   "PORT": 8800,
-  "SECRET_KEY": ""
+  "SECRET_KEY": "",
+  "SALT": 10
 }

@@ -43,7 +43,7 @@ components:
         - password
       type: object
       properties:
-        name:
+        fullName:
           type: string
         username:
           type: string
