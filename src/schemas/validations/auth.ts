@@ -30,3 +30,26 @@ export const registerSchema = ajv.compile({
     ],
     additionalProperties: false,
 });
+
+export const loginSchema = ajv.compile({
+  type: 'object',
+  properties: {
+    username: {
+        type: 'string',
+        minLength: 4,
+        maxLength: 50,
+        nullable: false
+    },
+    password: {
+        type: 'string',
+        minLength: 8,
+        maxLength: 255,
+        nullable: false
+    },
+  },
+  required: [
+    'username', 
+    'password'
+  ],
+  additionalProperties: false,
+});

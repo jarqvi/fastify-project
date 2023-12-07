@@ -12,6 +12,11 @@ export default function authRoute(
     url: '/register',
     handler: AuthController.register,
   });
+  fastify.route({
+    method: 'POST',
+    url: '/login',
+    handler: AuthController.login,
+  });
 
   done();
 }
