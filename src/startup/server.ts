@@ -8,6 +8,7 @@ import { db } from './db';
 import { env } from './config';
 import { logger } from './logger';
 import v1Routes from '../routes/v1';
+import { verifyToken } from '../utils/token';
 
 const PORT: number = config.get('PORT');
 const HOST: string = config.get('HOST');
@@ -34,6 +35,21 @@ server.register(cors, {
   credentials: true,
 });
 
+// server.addHook('preHandler', async (req, reply) => {
+//   try {
+//     const token = req.headers.authorization?.replace('Bearer ', '');
+//     if (!token) {
+//       return reply.status(401).send({ error: 'Unauthorized.' });
+//     }
+
+//     const decodedToken = await verifyToken(token);
+    
+//     //@ts-ignore
+//     req.user = decodedToken;
+//   } catch (error) {
+//     reply.status(401).send({ error: 'Unauthorized.' });
+//   }
+// });
 server.route({
   method: 'GET',
   url: '/',

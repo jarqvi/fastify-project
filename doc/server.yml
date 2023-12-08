@@ -8,8 +8,26 @@ servers:
 security:
   - jwt: []
 tags:
+  - name: Index
   - name: Auth
 paths:
+  /:
+    get:
+      tags:
+        - Index
+      summary: Index
+      description: index route
+      operationId: index
+      responses:
+        200:
+          description: Successful operation
+          content: {}
+        401:
+          description: Missing authentication
+          content: {}
+        500:
+          description: Internal server error
+          content: {}
   /api/v1/auth/register:
     post:
       tags:
