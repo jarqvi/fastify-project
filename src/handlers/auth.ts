@@ -86,7 +86,7 @@ class AuthController {
       })
     }
 
-    const token = createToken(user.getDataValue('id'), user.getDataValue('username')); 
+    const token = await createToken(user.getDataValue('id'), user.getDataValue('username')); 
 
     return reply.code(200).send({
       token
