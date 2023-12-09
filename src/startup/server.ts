@@ -35,21 +35,24 @@ server.register(cors, {
   credentials: true,
 });
 
-// server.addHook('preHandler', async (req, reply) => {
-//   try {
-//     const token = req.headers.authorization?.replace('Bearer ', '');
-//     if (!token) {
-//       return reply.status(401).send({ error: 'Unauthorized.' });
-//     }
+server.addHook('preHandler', async (req, reply) => {
+  try {
+    if (req.url.startsWith('/api/v1/auth') || req.url === '/') return;
 
-//     const decodedToken = await verifyToken(token);
+    const token = req.headers.authorization?.replace('Bearer ', '');
+    if (!token) {
+      return reply.status(401).send({ error: 'Unauthorized.' });
+    }
+
+    const decodedToken = await verifyToken(token);
     
-//     //@ts-ignore
-//     req.user = decodedToken;
-//   } catch (error) {
-//     reply.status(401).send({ error: 'Unauthorized.' });
-//   }
-// });
+    //@ts-ignore
+    req.user = decodedToken;
+  } catch (error) {
+    reply.status(401).send({ error: 'Unauthorized.' });
+  }
+});
+
 server.route({
   method: 'GET',
   url: '/',
