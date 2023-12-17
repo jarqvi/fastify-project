@@ -146,3 +146,6 @@ public/uploads
 
 # End of https://www.toptal.com/developers/gitignore/api/node
 1
+
+# Static files
+public
